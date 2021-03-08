@@ -1,0 +1,72 @@
+{% extends "layout.html" %} 
+{% set active_page = "preprocessingview" %} 
+{% block content %}
+
+<script>
+    // function prosesPreTesting() {
+    //     var source = new EventSource("/prosesPreTesting/{{filename}}");
+    //     source.onmessage = function (event) {
+    //         $('.progress-bar').css('width', event.data + '%').attr('aria-valuenow', event.data);
+    //         if (event.data == 100) {
+    //             source.close()
+    //             alert("Preprocesssing Selesai")
+    //             window.location.href = "{{ url_for('preprocessing') }}"
+    //         }
+    //     }
+    // }
+    
+    function disableUpload() {
+        document.getElementById("btnTesting").disabled = true;
+    };
+</script>
+
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <div class="main-body">
+                <div class="page-wrapper">
+                    <div class="page-body">
+                        <!-- start -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>PREPROCESSING</h4>
+                                    </div>
+                                    <div class="card-block">
+                                        
+                                        {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+                                        <div class="col-sm-12">
+                                            <div class="sufee-alert alert with-close alert-danger alert-dismissible fade show" role="alert">
+                                                <span class="badge badge-pill badge-danger">Error</span> {{ message }}
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        {% endfor %} {% endif %} {% endwith %}
+
+                                        <!-- Upload Data Testing -->
+                                        <strong>Data sudah disimpan di database</strong>
+                                        <div class="card-block">
+                                          <a class="btn btn-primary" href="{{ url_for('process') }}">NEXT <i class="ti-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                        <!-- end -->
+
+                        </div>
+
+                            <div id="styleSelector">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

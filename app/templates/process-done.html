@@ -1,0 +1,73 @@
+{% extends "layout.html" %} 
+{% set active_page = "process-menu" %} 
+{% block content %}
+
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <div class="main-body">
+                <div class="page-wrapper">
+                    <div class="page-body">
+                        <!-- start -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>HASIL KLASIFIKASI</h4>
+                                    </div>
+                                    <div class="card-block">
+                                        <strong>Proses Klasifikasi Telah Selesai</strong>
+                                        <p>File 
+                                            <code>hasil.csv</code>
+                                          Tersimpan
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end -->
+                    </div>
+
+                        <!-- Table -->
+                        <div class="row">
+                          {% if dnTesting == False %}
+                              <div class="col-md-12" style="display: block">
+                          {% else %}
+                              <div class="col-md-12" style="display: none">
+                          {% endif %}
+                                  <div class="card">
+                                      <div class="card-header">
+                                          <strong class="card-title">Preview Data Hasil Klasifikasi</strong>
+                                          <p class="mt-3-text-right">
+                                              <code>
+                                                  {{ filename }} ({{ rows }} baris, {{ cols }} kolom)
+                                              </code>
+                                          </p>
+                                      </div>
+                                      <div class="card-body table-responsive">
+                                          {% block testing %} 
+                                              {{ tableTesting|safe }} 
+                                          {% endblock %}
+                                      </div>
+                                    <!--   <div class="card-footer">
+                                        <button onclick="window.location.href='{{ app_url }}/process'" class="btn btn-success btn-sm" style="float: right;">
+                                            <i class="fa fa-arrow-circle-o-right"></i> Proses
+                                        </button>
+                                    </div> -->
+                                  </div>
+                              </div>
+                          </div>
+                          </div>
+                      <!-- End of Table -->
+
+                            <div id="styleSelector">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

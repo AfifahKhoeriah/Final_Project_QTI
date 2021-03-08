@@ -1,0 +1,29 @@
+version: '3.5'
+
+services:
+  db:
+    container_name: "final"
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=cintaallah123
+      - POSTGRES_DB=final
+      - POSTGRES_HOST=localhost
+      - POSTGRES_PORT=5432
+
+  app:
+    container_name: "final"
+    build:
+      context: .
+    ports:
+      - 5000:5000
+    volumes:
+      - . :/app
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=cintaallah123
+      - POSTGRES_DB=final
+      - POSTGRES_HOST=localhost
+      - POSTGRES_PORT=5432
